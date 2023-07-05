@@ -87,7 +87,7 @@ const Connexion = () => {
 
                   <p style={{ color: "blue", cursor: "pointer" }}>Mot de passe oublié ?</p>
                   <hr />
-                  <Button variant="success" style={{ width: "100%", marginBottom: "1rem" }} onClick={mampiditra} block>
+                  <Button variant="success" style={{ width: "100%", marginBottom: "1rem" }}  block>
                     Créer nouveau compte
                   </Button>
                 </div>
