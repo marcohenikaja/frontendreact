@@ -72,7 +72,8 @@ const Connexion = () => {
       <div style={{ background: "white", padding: "4rem", width: "500px", borderRadius: "10px" }}>
         <Container>
    <div className="text-center">
-<p style={{color: "blue", fontSize: "1.2em"}}>Facebook</p> </div>
+        <p style={{color: "blue", fontSize: "1.2em"}}>Facebook</p>
+  </div>
           <Row className="justify-content-center">
             <Col md={8}>
               <Form>
