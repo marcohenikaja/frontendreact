@@ -15,6 +15,20 @@ const Connexion = () => {
     setMdp(e.target.value);
   }
 
+
+  const aseohy=()=>{
+     toast.error('Vous ne pouvez pas créer une compte en version beta.', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    });
+  }
+
   const mampiditra = async (req, res, error) => {
 
     if (mdp === "" || nom === "") {
@@ -57,6 +71,7 @@ const Connexion = () => {
     <div style={{ background: "#f0f2f5", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <div style={{ background: "white", padding: "4rem", width: "500px", borderRadius: "10px" }}>
         <Container>
+  <p> facebook  </p>
           <Row className="justify-content-center">
             <Col md={8}>
               <Form>
@@ -87,7 +102,7 @@ const Connexion = () => {
 
                   <p style={{ color: "blue", cursor: "pointer" }}>Mot de passe oublié ?</p>
                   <hr />
-                  <Button variant="success" style={{ width: "100%", marginBottom: "1rem" }}  block>
+                  <Button variant="success" style={{ width: "100%", marginBottom: "1rem" }} onClick="aseohy()"  block>
                     Créer nouveau compte
                   </Button>
                 </div>
