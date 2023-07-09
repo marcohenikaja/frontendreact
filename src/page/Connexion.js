@@ -97,7 +97,7 @@ const Connexion = () => {
                     onChange={(e) => setMdp(e.target.value)}
                     style={{ width: "100%", marginBottom: "1rem", margin: "0 auto" }}
                   />
-                </Form.Group>
+                </Form.Group> <br/>
                 <div className="text-center">
                   <Button
                     variant="primary"
