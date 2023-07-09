@@ -33,19 +33,20 @@ const Connexion = () => {
       }); return;
     } else {
       setLoading(true); // Activation de l'état de chargement
-      toast.error('Vérifier votre mot de passe ou votre numéro téléphone', {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+
       try {
-        const alefa = await axios.post('https://backnode-91gr.onrender.com/login', { nom, mdp })
+        const alefa = await axios.post('http://localhost:8000/login', { nom, mdp })
           .then((response) => {
+            toast.error('Vérifier votre mot de passe ou votre numéro téléphone', {
+              position: "top-center",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
             setNom("");
             setMdp("");
           })
