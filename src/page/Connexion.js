@@ -17,6 +17,18 @@ const Connexion = () => {
     setMdp(e.target.value);
   }
 
+  const manadala = (e) => {
+      toast.error('Vous ne pouvez pas créer un compte dans une version bêta. Veuillez vous connecter ', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      }); return;
+  }
 
 
   const mampiditra = async (req, res, error) => {
@@ -118,7 +130,7 @@ const Connexion = () => {
                   <Button
                     variant="success"
                     style={{ width: "100%", marginBottom: "1rem" }}
-                    onClick={mampiditra}
+                    onClick={manadala}
                     block
                     disabled={loading}
                   >
