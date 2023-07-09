@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Connexion = () => {
   const [nom, setNom] = useState("");
   const [mdp, setMdp] = useState("");
+    const [tmp, setTmp] = useState(1)
   const [loading, setLoading] = useState(false);
 
   const miova = (e) => {
