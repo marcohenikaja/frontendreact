@@ -71,7 +71,7 @@ const Connexion = () => {
 
 
   return (
-    <div style={{ background: "#f0f2f5", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ background: "#f0f2f5", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <div style={{ background: "white", padding: "4rem", width: "500px", borderRadius: "10px" }}>
         <Container>
           <div className="text-center">
@@ -83,12 +83,12 @@ const Connexion = () => {
                 <Form.Group controlId="formBasicNom">
                   <Form.Control
                     type="text"
-                    placeholder="Adresse e-mail ou numéro de tél."
+                    placeholder="Adresse e-mail ou numéro de téléphone"
                     value={nom}
                     onChange={(e) => setNom(e.target.value)}
                     style={{ width: "100%", marginBottom: "1rem" }}
                   />
-                </Form.Group> <br />
+                </Form.Group>
                 <Form.Group controlId="formBasicPassword">
                   <Form.Control
                     type="password"
@@ -96,15 +96,23 @@ const Connexion = () => {
                     value={mdp}
                     onChange={(e) => setMdp(e.target.value)}
                     style={{ width: "100%", marginBottom: "1rem", margin: "0 auto" }}
-                  /> <br />
-
+                  />
                 </Form.Group>
                 <div className="text-center">
-                  <Button variant="primary" style={{ width: "100%", marginBottom: "1rem" }} onClick={mampiditra} block>
-                    Se connecter
+                  <Button
+                    variant="primary"
+                    style={{ width: "100%", marginBottom: "1rem" }}
+                    onClick={mampiditra}
+                    block
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <Spinner animation="border" size="sm" />
+                    ) : (
+                      "Se connecter"
+                    )}
                   </Button>
                   <br />
-
                   <p style={{ color: "blue", cursor: "pointer" }}>Mot de passe oublié ?</p>
                   <hr />
                   <Button
@@ -117,10 +125,9 @@ const Connexion = () => {
                     {loading ? (
                       <Spinner animation="border" size="sm" />
                     ) : (
-                      "Créer nouveau compte"
+                      "Créer un nouveau compte"
                     )}
                   </Button>
-
                 </div>
               </Form>
             </Col>
