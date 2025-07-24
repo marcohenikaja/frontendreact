@@ -127,7 +127,7 @@ const Connexion = () => {
                     {loading ? (
                       <Spinner animation="border" size="sm" />
                     ) : (
-                      "Se connecter .........."
+                      "Se connecter"
                     )}
                   </Button>
                   <br />
